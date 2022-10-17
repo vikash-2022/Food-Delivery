@@ -175,7 +175,8 @@ if (isset($_POST['submit'])) {
                                             <div class="text-center">
                                                 <a href="cart.php?remove=<?php echo $item['id']; ?>">
 
-                                                    <img src="remove.png" style="height:34px;"></a>
+                                                    <img src="assets\images\remove.png" style="height:34px;">
+                                                </a>
                                             </div>
                                         </td>
 

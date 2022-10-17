@@ -1,27 +1,25 @@
 <?php include 'database.php';
-session_start();
+
 if (isset($_POST['submit'])) {
   $user_email = $_POST['u_email'];
   $user_password =md5($_POST['u_password']);
-  $query = mysqli_query($con, "SELECT * FROM `admin` WHERE `email` = '$user_email'");
+  $query = mysqli_query($con, "SELECT * FROM admin WHERE email = '$user_email' and password='$user_password'");
   $email_count = mysqli_num_rows($query);
   if ($email_count) {
-   $email_pass=mysqli_fetch_assoc($query);
-   $check_password=($email_pass['password']);
-     if(md5($user_password==$check_password)){
-      header('location:index.php'); 
-     }
-     else{
-      $msgg ="<div class='alert alert-warning text-dark' role='alert'>
+    $email_pass = mysqli_fetch_assoc($query);
+    $check_password = ($email_pass['password']);
+    if (md5($user_password == $check_password)) {
+      header('location:index.php');
+    } else {
+      $msgg = "<div class='alert alert-warning text-dark' role='alert'>
   Invalid Password!
 </div>";
-     }
-      }
-      else{
-        $msg ="<div class='alert alert-warning text-dark' role='alert'>
+    }
+  } else {
+    $msg = "<div class='alert alert-warning text-dark' role='alert'>
         Invalid Email!
       </div>";
-      }
+  }
 }
 ?>
 <!DOCTYPE html>
@@ -59,7 +57,7 @@ if (isset($_POST['submit'])) {
                   <p class="mb-0">Enter your email and password to sign in</p>
                 </div>
                 <div class="card-body">
-                  <form method="POST" enctype="multipart/form-data">
+                  <form method="POST">
                     <label>Email</label>
                     <div class="mb-3">
                       <input type="email" name="u_email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon" required>
