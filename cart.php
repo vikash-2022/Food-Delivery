@@ -19,7 +19,7 @@ if (isset($_POST['i_quantity'])) {
     }
 }
 if (isset($_POST['submit'])) {
-
+    
     $query = "INSERT INTO `order_user`( `Full_name`, `Email`, `Phone_no`, `Address`, `Pay_mode`) VALUES ('$_POST[u_name]','$_POST[u_email]','$_POST[u_number]','$_POST[u_address]','$_POST[paymode]')";
 
     if (mysqli_query($con, $query)) {
