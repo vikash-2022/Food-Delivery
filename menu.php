@@ -32,164 +32,228 @@ if (isset($_POST['add_to_cart']))
         );
     }
 }
-
 ?>
-
-
-<section style="background-image: url(assets/images/menu-bg.png);" class="our-menu section bg-light repeat-img" id="menu">
-    <div class="sec-wp">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="sec-title text-center mb-5">
-                        <p class="sec-sub-title mb-3">our menu</p>
-                        <h2 class="h2-title">wake up early, <span>eat fresh & healthy</span></h2>
-                        <div class="sec-title-shape mb-4">
-                            <img src="assets/images/title-shape.svg" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="menu-tab-wp">
-                <div class="row">
-                    <div class="col-lg-12 m-auto">
-                        <div class="menu-tab text-center">
-                            <ul class="filters">
-                                <div class="filter-active"></div>
-                                <li class="filter" data-filter=".all, .breakfast, .lunch, .dinner">
-                                    <img src="assets/images/menu-1.png" alt="">
-                                    All
-                                </li>
-                                <a href="breakfast.php">
-                                    <li class="filter">
-                                        <img src="assets/images/menu-2.png" alt="">
-                                        <span style="color:black;"> Breakfast</span>
-                                    </li>
-                                </a>
-                                <a href="lunch.php">
-                                    <li class="filter" data-filter=".lunch">
-                                        <img src="assets/images/menu-3.png" alt="">
-                                        Lunch
-                                    </li>
-                                </a>
-                                <a href="dinner.php">
-                                    <li class="filter" data-filter=".dinner">
-                                        <img src="assets/images/menu-4.png" alt="">
-                                        Dinner
-                                    </li>
-                                </a>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="menu-list-row">
-                <div class="row g-xxl-5 bydefault_show">
-                    <?php
-                    $query = mysqli_query($con, "select * from breakfast");
-                    while ($show = mysqli_fetch_array($query)) {
-                    ?>
-                        <div class="col-sm-4" data-cat="breakfast">
-                            <div class="dish-box text-center">
-                            <form action="" method="POST">
-                                <div class="dist-img">
-                                    <img src="Admin/<?php echo $show['img']; ?>" style="height:251px;width:251px" ;>
+<section style="background-image: url(assets/images/menu-bg.png);"
+                class="our-menu section bg-light repeat-img" id="menu">
+                <div class="sec-wp">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="sec-title text-center mb-5">
+                                    <p class="sec-sub-title mb-3">our menu</p>
+                                    <h2 class="h2-title">wake up early, <span>eat fresh & healthy</span></h2>
+                                    <div class="sec-title-shape mb-4">
+                                        <img src="assets/images/title-shape.svg" alt="">
+                                    </div>
                                 </div>
-                                <div class="dish-rating">
-                                    5
-                                    <i class="uil uil-star"></i>
-                                </div>
-                                <div class="dish-title">
-                                    <h3 class="h3-title"><?php echo $show['title'] ?></h3>
-                                    <p>120 calories</p>
-                                </div>
-                                <div class="dish-info">
-                                    <ul>
-                                        <li>
-                                            <p>Type</p>
-                                            <b><?php echo $show['type']; ?></b>
-                                        </li>
-                                        <li>
-                                            <p>Persons</p>
-                                            <b>1</b>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="dist-bottom-row">
-                                    <ul>
-                                        <li>
-                                            <b>Rs. <?php echo $show['price']; ?></b>
-                                        </li>
-                                        <li>
-                                        <button type="submit" class="dish-add-btn" name="add_to_cart">
-                                                            <i class="uil uil-plus"></i>
-                                                        </button>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <input type="hidden" name="item_img" value="<?php echo $show['img']; ?>">
-                                            <input type="hidden" name="item_title" value="<?php echo $show['title']; ?>">
-                                            <input type="hidden" name="item_price" value="<?php echo $show['price']; ?>">
-                            </form>
                             </div>
                         </div>
-                    <?php } ?>
-                    <?php
-                    $query = mysqli_query($con, "select * from lunch");
-                    while ($show = mysqli_fetch_array($query)) {
-                    ?>             
-                    <div class="col-sm-4" data-cat="lunch">
-                            <div class="dish-box text-center">
-                                <div class="dist-img">
-                                    <form method="POST">
-                                    <img src="Admin/<?php echo $show['img']; ?>" style="height:251px;width:251px" ;>
+                        <div class="menu-tab-wp">
+                            <div class="row">
+                                <div class="col-lg-12 m-auto">
+                                    <div class="menu-tab text-center">
+                                        <ul class="filters">
+                                            <div class="filter-active"></div>
+                                            <li class="filter" data-filter=".all, .breakfast, .lunch, .dinner">
+                                                <img src="assets/images/menu-1.png" alt="">
+                                                All
+                                            </li>
+                                            <li class="filter" data-filter=".breakfast">
+                                                <img src="assets/images/menu-2.png" alt="">
+                                                Breakfast
+                                            </li>
+                                            <li class="filter" data-filter=".lunch">
+                                                <img src="assets/images/menu-3.png" alt="">
+                                                Lunch
+                                            </li>
+                                            <li class="filter" data-filter=".dinner">
+                                                <img src="assets/images/menu-4.png" alt="">
+                                                Dinner
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
-                                <div class="dish-rating">
-                                    5
-                                    <i class="uil uil-star"></i>
-                                </div>
-                                <div class="dish-title">
-                                    <h3 class="h3-title"><?php echo $show['title'] ?></h3>
-                                    <p>120 calories</p>
-                                </div>
-                                <div class="dish-info">
-                                    <ul>
-                                        <li>
-                                            <p>Type</p>
-                                            <b><?php echo $show['type']; ?></b>
-                                        </li>
-                                        <li>
-                                            <p>Persons</p>
-                                            <b>1</b>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="dist-bottom-row">
-                                    <ul>
-                                        <li>
-                                            <b>Rs. <?php echo $show['price']; ?></b>
-                                        </li>
-                                        <li>
-                                        <button type="submit" class="dish-add-btn" name="add_to_cart">
+                            </div>
+                        </div>
+                        <div class="menu-list-row">
+                            <div class="row g-xxl-5 bydefault_show" id="menu-dish">
+                                  <?php
+                            $list_of_dish = mysqli_query($con, "select * from Breakfast");
+                            while ($show = mysqli_fetch_array($list_of_dish)) {
+                            ?>
+                                <div class="col-lg-4 col-sm-6 dish-box-wp breakfast" data-cat="breakfast">
+                                    <div class="dish-box text-center">
+                                         <form action="" method="POST">
+                                        <div class="dist-img">
+                                            <img src="Admin/<?php echo $show['img'];?>" alt=""style="height:251px;width:251px">
+                                        </div>
+                                        <div class="dish-rating">
+                                            5
+                                            <i class="uil uil-star"></i>
+                                        </div>
+                                        <div class="dish-title">
+                                            <h3 class="h3-title"><?php echo $show['title']; ?></h3>
+                                            <p>120 calories</p>
+                                        </div>
+                                        <div class="dish-info">
+                                            <ul>
+                                                <li>
+                                                    <p>Type</p>
+                                                    <b><?php echo $show['type']; ?></b>
+                                                </li>
+                                                <li>
+                                                    <p>Persons</p>
+                                                    <b>1</b>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="dist-bottom-row">
+                                            <ul>
+                                                <li>
+                                                    <b>Rs. <?php echo $show['price'];?></b>
+                                                </li>
+                                                <li>
+                                                     <button type="submit" class="dish-add-btn" name="add_to_cart">
                                                             <i class="uil uil-plus"></i>
                                                         </button>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                                </li>
+                                            </ul>
+                                        </div>
                                             <input type="hidden" name="item_img" value="<?php echo $show['img']; ?>">
                                             <input type="hidden" name="item_title" value="<?php echo $show['title']; ?>">
                                             <input type="hidden" name="item_price" value="<?php echo $show['price']; ?>">
 
                                         </form>
+
+
+                                    </div>
+
+                                </div>
+
+
+                            <?php
+                            }
+                            ?>
                                 
+                                    <?php
+                            $list_of_dish = mysqli_query($con, "select * from lunch");
+                            while ($show = mysqli_fetch_array($list_of_dish)) {
+                            ?>
+                                <!-- 4 -->
+                                <div class="col-lg-4 col-sm-6 dish-box-wp lunch" data-cat="lunch">
+                                    <div class="dish-box text-center">
+                                    <form action="" method="POST">
+                                        <div class="dist-img">
+                                            <img src="<?php echo $show['img']; ?>" alt=""style="height:251px;width:251px">
+                                        </div>
+                                        <div class="dish-rating">
+                                            4.5
+                                            <i class="uil uil-star"></i>
+                                        </div>
+                                        <div class="dish-title">
+                                            <h3 class="h3-title"><?php echo $show['title']; ?></h3>
+                                            <p>120 calories</p>
+                                        </div>
+                                        <div class="dish-info">
+                                            <ul>
+                                                <li>
+                                                    <p>Type</p>
+                                                    <b><?php echo $show['type']; ?></b>
+                                                </li>
+                                                <li>
+                                                    <p>Persons</p>
+                                                    <b>2</b>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="dist-bottom-row">
+                                            <ul>
+                                                <li>
+                                                    <b><?php echo$show['price'];?></b>
+                                                </li>
+                                                <li>
+                                                        <button type="submit" class="dish-add-btn" name="add_to_cart">
+                                                            <i class="uil uil-plus"></i>
+                                                        </button>
+                                                    </li>
+                                            </ul>
+                                        </div>
+                                              <input type="hidden" name="item_img" value="<?php echo $show['img']; ?>">
+                                            <input type="hidden" name="item_title" value="<?php echo $show['title']; ?>">
+                                            <input type="hidden" name="item_price" value="<?php echo $show['price']; ?>">
+
+                                        </form>
+                                    </div>
+                                </div>
+                            <?php
+                            }
+                            ?>
+                                
+                            <?php
+                            $list_of_dish = mysqli_query($con, "select * from dinner");
+                            while ($show = mysqli_fetch_array($list_of_dish)) {
+                            ?>
+                               
+                                <div class="col-lg-4 col-sm-6 dish-box-wp dinner" data-cat="dinner">
+                                    <div class="dish-box text-center">
+                                    <form action="" method="POST">
+                                        <div class="dist-img">
+                                            <img src="<?php echo $show['img'];?>" alt=""style="height:251px;width:251px">
+                                        </div>
+                                        <div class="dish-rating">
+                                            5
+                                            <i class="uil uil-star"></i>
+                                        </div>
+                                        <div class="dish-title">
+                                            <h3 class="h3-title"><?php echo $show['title']; ?></h3>
+                                            <p>120 calories</p>
+                                        </div>
+                                        <div class="dish-info">
+                                            <ul>
+                                                <li>
+                                                    <p>Type</p>
+                                                    <b><?php echo $show['type']; ?></b>
+                                                </li>
+                                                <li>
+                                                    <p>Persons</p>
+                                                    <b>1</b>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="dist-bottom-row">
+                                            <ul>
+                                                <li>
+                                                    <b>Rs. <?php echo $show['price']; ?></b>
+                                                </li>
+                                                <li>
+                                                     <button type="submit" class="dish-add-btn" name="add_to_cart">
+                                                            <i class="uil uil-plus"></i>
+                                                        </button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    <input type="hidden" name="item_img" value="<?php echo $show['img']; ?>">
+                                            <input type="hidden" name="item_title" value="<?php echo $show['title']; ?>">
+                                            <input type="hidden" name="item_price" value="<?php echo $show['price']; ?>">
+
+                                        </form>
+
+
+                                    </div>
+
+                                </div>
+
+
+                            <?php
+                            }
+                            ?>
                             </div>
                         </div>
-<?php }?>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
+            </section>
+
+
 
 <section class="two-col-sec section">
     <div class="container">

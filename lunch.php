@@ -49,6 +49,41 @@ if (isset($_POST['add_to_cart']))
                 </div>
             </div>
             <div class="menu-tab-wp">
+                            <div class="row">
+                                <div class="col-lg-12 m-auto">
+                                    <div class="menu-tab text-center">
+                                        <ul class="filters">
+                                            <div class="filter-active"></div>
+                                            <a href="menu.php">
+                                            <li class="filter" data-filter=".all, .breakfast, .lunch, .dinner">
+                                                <img src="assets/images/menu-1.png" alt="">
+                                                All
+                                            </li>
+                                </a>
+                                <a href="breakfast.php">
+                                    <li class="filter active" data-filter=".breakfast" style="color: rgb(255, 255, 255);">
+                                        <img src="assets/images/menu-2.png" alt="">
+                                        Breakfast
+                                    </li>
+                                </a>
+                                <a href="lunch.php">
+                                <li class="filter" data-filter=".lunch">
+                                                <img src="assets/images/menu-3.png" alt="">
+                                                Lunch
+                                            </li>
+                                </a>
+                                <a href="dinner.php">
+                                    <li class="filter" data-filter=".dinner" style="color: rgb(13, 13, 37);">
+                                        <img src="assets/images/menu-4.png" alt="">
+                                        Dinner
+                                    </li>
+                                </a>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            <!-- <div class="menu-tab-wp">
                 <div class="row">
                     <div class="col-lg-12 m-auto">
                         <div class="menu-tab text-center">
@@ -80,15 +115,15 @@ if (isset($_POST['add_to_cart']))
                                 </a>
                             </ul>
                         </div>
-                    </div>
-                    <div class="menu-list-row mt-5">
+                    </div>-->
+                    <div class="menu-list-row mt-5"> 
                         <div class="row g-xxl-5 bydefault_show" id="menu-dish">
                             <?php
                             $list_of_dish = mysqli_query($con, "select * from lunch");
                             while ($show = mysqli_fetch_array($list_of_dish)) {
                             ?>
 
-                                <div class="col-lg-4 col-sm-6 dish-box-wp breakfast">
+                                <div class="col-lg-4 col-sm-6 dish-box-wp lunch" data-cat="lunch">
                                     <div class="dish-box text-center">
                                         <form action="" method="POST">
 
