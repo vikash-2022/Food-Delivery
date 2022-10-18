@@ -2,9 +2,9 @@
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
       <a class="navbar-brand m-0" href="index.php" target="_blank">
-        <img src="./admin_asset/img/logo-ct.png" class="navbar-brand-img h-100" alt="main_logo">
+        <img src="./admin_asset/img/logo-ct.png" class="navbar-brand-img h-100" alt="">
         <span class="ms-1 font-weight-bold text-white">Resturant</span></a>
-        <a href="../logout.php"><img src="logout(2).png" alt="" style="height:34px;position:absolute;right:20px;top:21px;">
+        <a href="../logout.php"><img src="login_assets\img\logout(2).png" alt="" style="height:34px;position:absolute;right:20px;top:21px;">
       </a>
     </div>
     <hr class="horizontal light mt-0 mb-2">
